@@ -119,7 +119,7 @@ else
     <button id="query" style="margin-left:auto;margin-right:auto;">Query Subsonic</button>
     <br/><br/><br/><span id="msg"></span>
 </div>
-<div id="ajax-loader" style="display:none; position:absolute; left:250px;top:100px;"><img src="ajax-loader.gif"/></div>
+<div id="ajax-loader" style="display:none; position:absolute; left:250px;top:100px;"><img src="images/ajax-loader.gif"/></div>
 <div id="results" style="position:absolute;left:200px;padding-left:50px;border-left-width:2px;border-left-style:dashed;min-height:1000px;"></div>
 
 </body>
