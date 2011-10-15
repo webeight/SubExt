@@ -1,7 +1,7 @@
 <?php
 
 class Playlist_ProcessController extends AjaxController {
-	public function getAction(){
+	public function getPlayersAction(){
 		$this->setParam('steve', 'awesome');
 	}
 }
