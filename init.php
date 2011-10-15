@@ -12,3 +12,10 @@ function request($key, $defaultValue = false, $sourceArray = false) {
 		return $defaultValue;
 	}
 }
+
+class Creds {
+	const Username = '';
+	const Password = '';
+	const ServerURL = '';
+	const ServerPort = '4040';
+}
