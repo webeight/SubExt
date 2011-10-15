@@ -1,6 +1,24 @@
 <?php
 
-?><html>
+session_start();
+
+require_once("Subsonic.php");
+
+if(isset($_SESSION['Subsonic']))
+{
+	echo "You are logged in!";
+}
+else
+{
+	?>
+	Please log in.<br/>
+	<input name="username"/><label for="username">Username</label>
+}
+
+
+?>
+<!--
+<html>
 	<head>
 		<title>Test subExt</title>
 		
@@ -12,3 +30,4 @@
 		
 	</body>
 </html>
+-->
