@@ -2,7 +2,7 @@
 
 $action = (isset($_REQUEST['action'])) ? (string)$_REQUEST['action']: null;
 $options = (isset($_REQUEST['options'])) ? (array)$_REQUEST['options']: array();
-$rawAnswer = (isset($_REQUEST['rawAnswer'])) ? filter_var($_REQUEST['rawAnswer'], FILTER_VALIDATE_BOOLEAN):fals$
+$rawAnswer = (isset($_REQUEST['rawAnswer'])) ? filter_var($_REQUEST['rawAnswer'], FILTER_VALIDATE_BOOLEAN):false;
 
 if($action <> null)
 {
