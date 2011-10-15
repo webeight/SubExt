@@ -1,5 +1,7 @@
-Ext.define('sub.view.Viewport', {
+Ext.define('Sub.view.Viewport', {
 	extend:'Ext.container.Viewport', 
+	requires: ['Sub.view.albums.Panel'],
+	
 	layout: 'border',
 	defaults: {
 		bodyStyle: 'padding:15px'
@@ -11,12 +13,6 @@ Ext.define('sub.view.Viewport', {
 	
 	init: function() {
 		this.items = [{
-			title: 'Albums',
-			region:'west',
-			margins: '5 0 0 0',
-			cmargins: '5 5 0 0',
-			width: 200,
-		},{
 			title: 'Player Controls',
 			region: 'south',
 			height: 150,
@@ -25,12 +21,14 @@ Ext.define('sub.view.Viewport', {
 			title: 'Main Content',
 			region:'center',
 			margins: '5 0 0 0',
-			text: 'hey check me out'
 		}];
+		this.initAlbumsPanel();
 	},
 
 	initAlbumsPanel: function(){
-		this.albums = Ext.create('sub.view.albums.Panel');
+		this.albums = Ext.create('Sub.view.albums.Panel', {
+			region: 'west'
+		});
 		
 		this.items.push(this.albums);
 	},

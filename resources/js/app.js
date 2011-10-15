@@ -1,9 +1,12 @@
 Ext.application({
-    name: 'sub',
+    name: 'Sub',
+	views: [
+		'Sub.view.Viewport'
+	],
 	
     appFolder: 'resources/js/sub',
     launch: function() {
-        Ext.create('sub.view.Viewport', {
+        Ext.create('Sub.view.Viewport', {
 			renderTo: Ext.getBody(),
 		});
     }
