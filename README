@@ -1,4 +1,15 @@
-For the ajax to work, you will need to modify config.php with your credentials
+For the ajax to work, you will need to create config.php in the root directory
+and add the following code to it, filling in your information.
+<?php
+
+class Creds {
+	const Username = '';
+	const Password = '';
+	const ServerURL = '';
+	const ServerPort = '4040';
+}
+
+
 
 All the subsonic API commands work as a function in the Subsonic class, and take 1 optional parameter,
 	an array of options for the command.
