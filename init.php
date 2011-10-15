@@ -1,4 +1,5 @@
 <?php
+require_once('config.php');
 require_once('Subsonic.php');
 
 function request($key, $defaultValue = false, $sourceArray = false) {
@@ -11,11 +12,4 @@ function request($key, $defaultValue = false, $sourceArray = false) {
 	else {
 		return $defaultValue;
 	}
-}
-
-class Creds {
-	const Username = '';
-	const Password = '';
-	const ServerURL = '';
-	const ServerPort = '4040';
 }
