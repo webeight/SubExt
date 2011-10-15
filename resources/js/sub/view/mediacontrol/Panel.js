@@ -1,4 +1,4 @@
-Ext.define('sub.view.mediacontrol.Panel', {
+Ext.define('Sub.view.mediacontrol.Panel', {
 	extend: 'Ext.form.Panel',
 	alias: 'widget.mediacontrolpanel',
 	width: 500,
