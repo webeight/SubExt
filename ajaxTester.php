@@ -8,7 +8,7 @@ if($a <> null)
 {
     require_once("Subsonic.php");
     require_once("config.php");
-    $Subsonic = new Subsonic($username, $password, $serverUrl, $serverPort, "SubPHP Tester");
+    $Subsonic = new Subsonic(Creds::Username, Creds::Password, Creds::ServerURL, Creds::ServerPort, "SubPHP Tester");
     if($Subsonic->isCommand($a))
     {
         if($rawAnswer && !$xml)

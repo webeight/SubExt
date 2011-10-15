@@ -1,3 +1,7 @@
+Currently, PHP backend for interacting with the Subsonic API and an ajax tester are the only things working.
+Work on the ExtJS frontend has only begun.
+
+Browse to ajaxTester.php to try out the ajax tester, which can display results in multiple formats.
 For the ajax to work, you will need to create config.php in the root directory
 and add the following class to it, filling in your information.
 
@@ -19,7 +23,9 @@ http://subsonic.org/pages/api.jsp
 
 Example:
 
-$Subsonic = new Subsonic($username, $password, $serverUrl, $serverPort);
+require_once("config.php");
+
+$Subsonic = new Subsonic(Creds::Username, Creds::Password, Creds::ServerUrl, Creds::ServerPort);
 
 print_r($Subsonic->getMusicFolders());
 
