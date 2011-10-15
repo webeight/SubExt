@@ -31,7 +31,6 @@ class AjaxController {
 	public function parseRequest($request = false) {
 		if (!$request) {
 			$request = $_SERVER['REQUEST_URI'];
-			error_log( $request );
 		}
 		
 		// Break apart request into directory structure
@@ -57,11 +56,12 @@ class AjaxController {
 	public function run() {
 		// look for controller class
 		$controllerFile = __DIR__ . '/' . $this->moduleName . '/' . $this->controllerName . '.php';
-		error_log($controllerFile);
 		if (is_file($controllerFile)) {
 			include_once $controllerFile;
 			$controllerClassName = $this->moduleName . '_' . $this->controllerName;
+			error_log($controllerClassName);
 			if (class_exists($controllerClassName, true)) {
+				error_log('class is there!');
 				$controllerClass = new $controllerClassName();
 				$controllerClass->init();
 				$controllerClass->doAction($this->actionName);
@@ -77,7 +77,7 @@ class AjaxController {
 	 * @return bool
 	 */
 	public function doAction($actionName) {
-		if (method_exists($this, $actionName)) {
+		if (is_callable(array($this, $actionName), true)) {
 			$this->$actionName();
 			return true;
 		}

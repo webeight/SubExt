@@ -27,7 +27,6 @@ else
 		<script type="text/javascript" src="resources/js/app.js"></script>
 	</head>
 	<body>
-		
 	</body>
 </html>
 -->

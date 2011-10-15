@@ -15,8 +15,8 @@ if($action <> null)
         {
             echo $Subsonic->querySubsonic($action, $options, true);
         }
-	else
-	{
+		else
+		{
             echo json_encode($Subsonic->$action($options));
         }
     }
