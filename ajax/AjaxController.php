@@ -31,6 +31,7 @@ class AjaxController {
 	public function parseRequest($request = false) {
 		if (!$request) {
 			$request = $_SERVER['REQUEST_URI'];
+			error_log( $request );
 		}
 		
 		// Break apart request into directory structure
