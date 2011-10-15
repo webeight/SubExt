@@ -1,6 +1,5 @@
 For the ajax to work, you will need to create config.php in the root directory
-and add the following code to it, filling in your information.
-<?php
+and add the following class to it, filling in your information.
 
 class Creds {
 	const Username = '';
@@ -10,13 +9,12 @@ class Creds {
 }
 
 
-
 All the subsonic API commands work as a function in the Subsonic class, and take 1 optional parameter,
 	an array of options for the command.
 
 Visit the subsonic api documentation for information on the commands:
 
-http://http://subsonic.org/pages/api.jsp
+http://subsonic.org/pages/api.jsp
 
 
 Example:

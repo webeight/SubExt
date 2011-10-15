@@ -21,6 +21,6 @@ class Subsonic_RequestController extends AjaxController {
 		$password = Creds::Password;
 		$serverUrl = Creds::ServerURL;
 		$serverPort = Creds::ServerPort;
-		$this->subsonic = new Subsonic($username, $password, $serverUrl, $serverPort);
+		$this->subsonic = new Subsonic($username, $password, $serverUrl, $serverPort, "SubExt");
 	}
 }
