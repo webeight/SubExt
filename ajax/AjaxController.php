@@ -42,11 +42,11 @@ class AjaxController {
 		
 		$numParts = count($parts);
 		$this->actionName = 'index';
-		if ($numParts >= 4) {
-			$this->moduleName = $this->getModuleName($parts[2]);
-			$this->controllerName = $this->getControllerName($parts[3]);
-			if ($numParts > 4) {
-				$this->actionName = $this->getActionName($parts[4]);
+		if ($numParts >= 3) {
+			$this->moduleName = $this->getModuleName($parts[1]);
+			$this->controllerName = $this->getControllerName($parts[2]);
+			if ($numParts > 3) {
+				$this->actionName = $this->getActionName($parts[3]);
 			}
 			else {
 				$this->actionName = $this->getActionName($this->actionName);
@@ -57,6 +57,7 @@ class AjaxController {
 	public function run() {
 		// look for controller class
 		$controllerFile = __DIR__ . '/' . $this->moduleName . '/' . $this->controllerName . '.php';
+		error_log($controllerFile);
 		if (is_file($controllerFile)) {
 			include_once $controllerFile;
 			$controllerClassName = $this->moduleName . '_' . $this->controllerName;
