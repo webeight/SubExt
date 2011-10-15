@@ -1,8 +1,10 @@
 Ext.define('Sub.view.Viewport', {
 	extend:'Ext.container.Viewport', 
 	requires: [
-		'Sub.view.files.Panel'
+		'Sub.view.files.Panel',
+		'Sub.view.mediacontrol.Panel'
 	],
+	authenticated: false,
 	
 	layout: 'border',
 	defaults: {
@@ -15,11 +17,6 @@ Ext.define('Sub.view.Viewport', {
 	
 	init: function() {
 		this.items = [{
-			title: 'Player Controls',
-			region: 'south',
-			height: 150,
-			cmargins: '5 0 0 0'
-		},{
 			title: 'Main Content',
 			region:'center',
 			margins: '5 0 0 0',
@@ -34,6 +31,14 @@ Ext.define('Sub.view.Viewport', {
 		});
 		
 		this.items.push(this.albums);
+	},
+	
+	initMediaControl: function(){
+		this.items.push({
+			xtype: 'mediacontrolpanel',
+			region: 'south',
+			height: 150
+		});
 	},
 	
 	initOtherPanel: function(){
