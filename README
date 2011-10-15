@@ -1,8 +1,4 @@
-For the ajax to work, you will need a config.php with the following variables:
-$username
-$password
-$serverUrl
-$serverPort
+For the ajax to work, you will need to modify config.php with your credentials
 
 All the subsonic API commands work as a function in the Subsonic class, and take 1 optional parameter,
 	an array of options for the command.
