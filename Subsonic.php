@@ -56,36 +56,36 @@ class Subsonic
     
     public function querySubsonic($action, $o=array(), $rawAnswer=false)
     {
-	return $this->_querySubsonic($action, $o, $rawAnswer);
+		return $this->_querySubsonic($action, $o, $rawAnswer);
     }
 
     protected function _querySubsonic($action, $o=array(), $rawAnswer=false)
     {
 	    if ($this->isCommand($action)) // Make sure the command is in the list of commands
 	    {
-		$params = array_merge($this->_creds, $o);
-		$url = $this->getServer() . "/rest/" . $action . ".view?" . http_build_query($params);
-		$options = array(
-		    CURLOPT_URL => $url,
-		    CURLOPT_HEADER => 0,
-		    CURLOPT_RETURNTRANSFER => 1,
-		    CURLOPT_CONNECTTIMEOUT => 8,
-		    CURLOPT_SSL_VERIFYPEER => 0,
-		    CURLOPT_FOLLOWLOCATION => 1,
-		    CURLOPT_PORT => intval($this->_serverPort)
-		);
-		$ch = curl_init();
-		curl_setopt_array($ch, $options);
-		$answer = curl_exec($ch);
-		curl_close($ch);
-		if($rawAnswer)
-		{
-		    return $answer;
-		}
-		else
-		{
-		    return $this->parseResponse($answer);
-		}
+			$params = array_merge($this->_creds, $o);
+			$url = $this->getServer() . "/rest/" . $action . ".view?" . http_build_query($params);
+			$options = array(
+				CURLOPT_URL => $url,
+				CURLOPT_HEADER => 0,
+				CURLOPT_RETURNTRANSFER => 1,
+				CURLOPT_CONNECTTIMEOUT => 8,
+				CURLOPT_SSL_VERIFYPEER => 0,
+				CURLOPT_FOLLOWLOCATION => 1,
+				CURLOPT_PORT => intval($this->_serverPort)
+			);
+			$ch = curl_init();
+			curl_setopt_array($ch, $options);
+			$answer = curl_exec($ch);
+			curl_close($ch);
+			if($rawAnswer)
+			{
+				return $answer;
+			}
+			else
+			{
+				return $this->parseResponse($answer);
+			}
 	    }
         else
         {
@@ -133,36 +133,36 @@ class Subsonic
     
     protected function parseResponse($response)
     {
-	$object = json_decode($response);
-        $object = is_object($object) ? $object : new stdClass();
-	if(property_exists($object, "subsonic-response"))
-	{
-	    $response = (array)$object->{'subsonic-response'};
-	    $data = array_shift($response);
-	    return (object) array("success"=>true, "data"=>$data);
-	}
-	else
-	{
-	    return $this->error("Invalid response from server!", $object);
-	}
+		$object = json_decode($response);
+			$object = is_object($object) ? $object : new stdClass();
+		if(property_exists($object, "subsonic-response"))
+		{
+			$response = (array)$object->{'subsonic-response'};
+			$data = array_shift($response);
+			return (object) array("success"=>true, "data"=>$data);
+		}
+		else
+		{
+			return $this->error("Invalid response from server!", $object);
+		}	
     }
     
     public function isCommand($command)
     {
-	if(in_array($command, $this->_commands))
-	{
-	    return true;
-	}
-	else
-	{
-	    return false;
-	}
+		if(in_array($command, $this->_commands))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
     }
     
     public function __call($action, $arguments)
     {
-	$o = count($arguments) ? (array) $arguments[0] : array();
-	return $this->_querySubsonic($action, $o);
+		$o = count($arguments) ? (array) $arguments[0] : array();
+		return $this->_querySubsonic($action, $o);
     }
     
 }
