@@ -1,5 +1,5 @@
 <?php
-
+/*
 session_start();
 
 require_once("Subsonic.php");
@@ -16,8 +16,11 @@ else
 }
 
 
+
+ * 
+ */
+
 ?>
-<!--
 <html>
 	<head>
 		<title>Test subExt</title>
@@ -28,4 +31,3 @@ else
 	<body>
 	</body>
 </html>
--->

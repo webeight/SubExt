@@ -1,6 +1,8 @@
 Ext.define('Sub.view.Viewport', {
 	extend:'Ext.container.Viewport', 
-	requires: ['Sub.view.albums.Panel'],
+	requires: [
+		'Sub.view.files.Panel'
+	],
 	
 	layout: 'border',
 	defaults: {
@@ -23,10 +25,11 @@ Ext.define('Sub.view.Viewport', {
 			margins: '5 0 0 0',
 		}];
 		this.initAlbumsPanel();
+		this.initMediaControl();
 	},
 
 	initAlbumsPanel: function(){
-		this.albums = Ext.create('Sub.view.albums.Panel', {
+		this.albums = Ext.create('Sub.view.files.Panel', {
 			region: 'west'
 		});
 		
