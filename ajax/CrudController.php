@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__) . '/AjaxController.php';
+require_once 'AjaxController.php';
 class CrudController extends AjaxController {
 	public $model;
 	public $modelInstance;
