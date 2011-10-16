@@ -8,46 +8,47 @@ Ext.define('Sub.view.Viewport', {
 	
 	layout: 'border',
 	defaults: {
-		bodyStyle: 'padding:15px'
+		bodyStyle: 'padding: 8px'
 	},
+	
 	initComponent: function(){
-		this.init();
+		if (!this.authenticated){
+			console.log("you're not auth'd!");
+		}
+		
+		this.items = [];
+		this.initCenter();
+		this.initAlbumsPanel();
+		this.initMediaControl();
+		
 		this.callParent(arguments);
 	},
 	
-	init: function() {
-		this.items = [{
+	initCenter: function(){
+		this.mainContent = {
 			title: 'Main Content',
 			region:'center',
-			margins: '5 0 0 0',
-		}];
-		this.initAlbumsPanel();
-		this.initMediaControl();
+		};
+		this.items.push(this.mainContent);
 	},
 
 	initAlbumsPanel: function(){
 		this.albums = Ext.create('Sub.view.files.Panel', {
-			region: 'west'
+			title: '',
+			region: 'west',
+			width: 160
 		});
-		
+
 		this.items.push(this.albums);
 	},
 	
 	initMediaControl: function(){
-		this.items.push({
+		this.mediaControl = {
 			xtype: 'mediacontrolpanel',
-			region: 'south',
-			height: 150
-		});
-	},
-	
-	initOtherPanel: function(){
-		this.items.push({
-			xtype: 'panel',
-			width: '80%',
-			height: 200,
-			title: 'extSubsonic Client',
-			html : 'Some cool shit about to happen up in here.'
-		});
+			region: 'east',
+			width: 150
+		};
+		
+		this.items.push(this.mediaControl);
 	}
 });
