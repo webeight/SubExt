@@ -4,10 +4,12 @@ Ext.application({
 		'Sub.view.Viewport'
 	],
 	
+	authenticated: true,
+	
     appFolder: 'resources/js/sub',
     launch: function() {
-        Ext.create('Sub.view.Viewport', {
-			renderTo: Ext.getBody(),
+		Ext.create('Sub.view.Viewport', {
+			authenticated: this.authenticated
 		});
     }
 });
