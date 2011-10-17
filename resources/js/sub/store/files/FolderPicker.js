@@ -11,7 +11,7 @@ Ext.define('Sub.store.files.FolderPicker', {
     },
 	
 	fields: [
-        {name: 'id',       type: 'int'},
-        {name: 'name',  type: 'string'}
+        {name: 'id',	type: 'string'},
+        {name: 'name',	type: 'string'}
 	]
 });
