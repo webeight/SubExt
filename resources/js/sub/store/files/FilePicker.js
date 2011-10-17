@@ -12,8 +12,9 @@ Ext.define('Sub.store.files.FilePicker',{
 	},
 	
 	fields: [
-		{name: 'id',	type: 'string'},
-		{name: 'name',	type: 'string'},
-		{name: 'artist',	type: 'string'}
+		{name: 'id',		type: 'string'},
+		{name: 'name',		type: 'string'},
+		{name: 'artist',	type: 'string'},
+		{name: 'coverArt',	type: 'string'}
 	]
 });

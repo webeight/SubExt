@@ -9,7 +9,7 @@ Ext.define('Sub.form.files.FolderPicker', {
     fieldLabel: 'Folder',
     displayField: 'name',
     valueField: 'id',
-	width: 120,
+//	width: 120,
 	editable: false,
 	
 	initComponent: function(){
@@ -20,10 +20,11 @@ Ext.define('Sub.form.files.FolderPicker', {
 	
 	initListeners: function(){
 		this.store.on('load', function(){
-			this.insert(0,{
+			this.store.insert(0,{
 				id: "-1",
 				name: 'All'
 			});
-		});
+			this.setValue('-1');
+		}, this);
 	}
 });
