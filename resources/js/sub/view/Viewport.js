@@ -1,7 +1,7 @@
 Ext.define('Sub.view.Viewport', {
 	extend:'Ext.container.Viewport', 
 	requires: [
-		'Sub.view.files.Panel',
+//		'Sub.view.files.Panel',
 		'Sub.view.mediacontrol.Panel',
 		'Sub.form.files.FolderPicker'
 	],
@@ -34,14 +34,12 @@ Ext.define('Sub.view.Viewport', {
 	},
 
 	initAlbumsPanel: function(){
-//		this.albums = Ext.create('Sub.view.files.Panel', {
-//			title: '',
-//			region: 'west',
-//			width: 160
-//		});
 		this.albums = Ext.create('Sub.form.files.FilePicker', {
-			region: 'west', 
-			width: 260
+			region: 'west',
+			width: 260,
+			resizable: true,
+			collapsible: true,
+			title: "Files"
 		});
 
 		this.items.push(this.albums);

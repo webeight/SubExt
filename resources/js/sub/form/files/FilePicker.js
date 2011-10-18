@@ -6,7 +6,7 @@ Ext.define('Sub.form.files.FilePicker', {
 	],
 	
 	rootVisible: false,
-	height: 600,
+//	height: 600,
 	
 	initComponent: function(){
 		this.tbar = this.tbar || [];
@@ -71,9 +71,11 @@ Ext.define('Sub.form.files.FilePicker', {
 	
 	initListeners: function(){
 		
+		this.on('afterrender', function(){
+			this.folderPicker.store.load();
+		})
+		
 		this.folderPicker.on('change', function(me, id){
-//			if (this.getStore().isLoading()) return;
-			
 			this.setFolder(id);
 		}, this);
 	},
