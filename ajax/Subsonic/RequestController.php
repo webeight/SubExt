@@ -1,6 +1,6 @@
 <?php
 
-class Subsonic_RequestController extends AjaxController {
+class Subsonic_RequestController extends AjaxHandler {
 //	public function pingAction(){
 //		$this->setParam('hey', 'whoa');
 //	}

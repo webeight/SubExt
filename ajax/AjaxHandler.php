@@ -1,6 +1,6 @@
 <?php
 
-class AjaxController {
+class AjaxHandler {
 
 	private $_returnCode = array();
 	private $_errors = array();

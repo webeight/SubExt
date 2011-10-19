@@ -1,6 +1,6 @@
 <?php
 
-class Playlist_ProcessController extends AjaxController {
+class Playlist_ProcessController extends AjaxHandler {
 	public function indexAction(){
 		
 	}

@@ -1,6 +1,6 @@
 <?php
 
-class Files_RequestController extends AjaxController {
+class Files_RequestController extends AjaxHandler {
 	public function getAction(){
 		$node = request('node');
 		$folder = request('folder');
